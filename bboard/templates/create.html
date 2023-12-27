@@ -1,0 +1,24 @@
+{% extends "layout/basic.html" %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+{% endblock %}
+{% block header %}
+    <header>
+        <h1>Формы</h1>
+    </header>
+    {% endblock %}
+{% block content %}
+    <!-- <h1>Добавление объявления</h1>
+    <div>
+        <a href="{% url 'index' %}">Главная</a>
+        {% for rubric in rubrics %}
+            <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+        {% endfor %}
+    </div> -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Добавить">
+    </form>
+{% endblock %}

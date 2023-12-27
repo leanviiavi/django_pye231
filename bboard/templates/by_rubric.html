@@ -1,0 +1,17 @@
+{% extends "layout/basic.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
+{% if current_rubric %}
+<h1>Рубрика: {{ current_rubric.name }}</h1>
+<h2>Изменено: {{ current_rubric.updated_date|date:"d.m.Y H:i:s" }}</h2>
+
+{% endif %}
+<div>
+    {% for bb in bbs %}
+        <h2>{{ bb.title_and_price }}"</h2>
+        <p>{{ bb.content }}</p>
+        <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+
+    {% endfor %}
+</div>
+{% endblock %}
